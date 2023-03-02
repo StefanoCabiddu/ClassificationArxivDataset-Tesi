@@ -28,7 +28,7 @@ Ora faremo una breve descrizione dei metodi di classificazione utilizzati:
 
 ## Deployment
 
-Per utilizzare questo progetto runnare su google colab (o su un'IDE se in possesso di GPU fisica nel PC che si utilizza) il codice che si trova nei file python relativi ai metodi di classificazione utilizzati.
+Per utilizzare questo progetto runnare su Google Colab (o su un'IDE se in possesso di GPU fisica nel PC che si utilizza) il codice che si trova nei file python relativi ai metodi di classificazione utilizzati.
 
 Nel caso si utilizzasse google colab bisogna caricare il dataset sul blocco note su cui si lavora (tramite collegamento a google drive o tramite caricamento file - il secondo metodo è molto più lento)
 
@@ -68,7 +68,7 @@ Il codice sorgente è stato rilasciato sotto la licenza open source Apache 2.0.
 
 ## Optimizations
 
-Ho ritenuto utile nello Zero-shot Learning passare il dataframe creato con Apache Spark a Pandas per ottimizzare quella che è la classificazione del modello. Infatti, come ho spiegato anche nella documentazione che si può scaricare da questo readme nella sezione "Documentation", il metodo che avrei dovuto utilizzare per recuperare tutti gli elementi del set di dati (da tutti i nodi) nel nodo driver è denominato collect(). Esso, però, per la grande mole di dati su cui doveva lavorare aveva un tempo di esecuzione stimato in parecchie ore (si arrivava anche a 16 ore per il suo completamento)
+Si è ritenuto utile, nello nello Zero-shot Learning, trasformare il dataframe creato con Apache Spark a Pandas per ottimizzare quella che è la classificazione del modello. Infatti, come ho spiegato anche nella documentazione che si può scaricare da questo readme nella sezione "Documentation", il metodo che avrei dovuto utilizzare per recuperare tutti gli elementi del set di dati (da tutti i nodi) nel nodo driver è denominato collect(). Esso, però, per la grande mole di dati su cui doveva lavorare aveva un tempo di esecuzione stimato in parecchie ore (si arrivava anche a 16 ore per il suo completamento)
 
 Per questo motivo è stato appunto deciso di trasformare il dataframe in pandas in modo tale che utilizzando il metodo iloc l'esecuzione della classificazione poteva avvenire in una tempistica accettabile (massimo 45/50 minuti per le porzioni dataset più grandi). 
 
